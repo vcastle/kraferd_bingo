@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-    <link rel="shortcut icon" href="/bingo//bingo/img/partyP.ico" />
+    <link rel="shortcut icon" href="/img/partyP.ico" />
 
     
     <title>Web Dev Bingo | Lets Party</title>
@@ -91,10 +91,12 @@ SOFTWARE.
     </div><!--end nav-->
 
     <div class="container col-lg-9">
-
+        <!--first wheel-->
         <div id="chart"></div>
         <div id="question"><h1></h1></div>
         <div id="image"></div>
+
+        <!--maybe add a second wheel for 2nd round-->
 
     <!--alert for rules-->
         <div class="alert alert-success alert-dismissible fade" role="alert" id="buttonAlert">
@@ -123,7 +125,9 @@ SOFTWARE.
     //rules button
     $("#showRules").click( function() {
         $("#buttonAlert").toggleClass('show') //Shows Bootstrap alert
+
     })
+
 
 
         var padding = {top:20, right:40, bottom:0, left:0},
@@ -137,7 +141,7 @@ SOFTWARE.
             color = d3.scale.category20();//category20c()
             //randomNumbers = getRandomNumbers();
 
-// N-25 IS FREE SPACE
+
         var data = [
                     {"label":"B-1",  "value":1, "question":"What is the Software Development Life Cycle? BONUS: Draw it out"}, 
                     {"label":"O-2",  "value":1, "question":"What is scalability?"},
@@ -147,7 +151,7 @@ SOFTWARE.
                     {"label":"B-6",  "value":1, "question":"As a developer, what ways are applied to reduce the load time of any given website?"}, 
                     {"label":"N-7",  "value":1, "question":"What are reference types in C#?"},
                     {"label":"I-8",  "value":1, "question":"What are nullable types in C#?"}, 
-                    {"label":"G-9",  "value":1, "question":"What does MVC stands for? BONUS: What are the benefits of MVC?"}, 
+                    {"label":"G-9",  "value":1, "question":"What does MVC stand for? BONUS: What are the benefits of MVC?"}, 
                     {"label":"O-10", "value":1, "question":"What is a relationship and what are they? BONUS: Give examples for each relationship"}, 
                     {"label":"B-11", "value":1, "question":"What's a foreign key and a primary key?"}, 
                     {"label":"O-12", "value":1, "question":"What is the difference between authentication and authorization?"},
@@ -221,6 +225,7 @@ SOFTWARE.
             if(oldpick.length == data.length){
                 console.log("done");
                 container.on("click", null);
+                container.style({"opacity":"0.4"});
                 return;
             }
 
