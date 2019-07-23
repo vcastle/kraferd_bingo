@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "public": "bingo",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}

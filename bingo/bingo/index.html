@@ -1,11 +1,24 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-    <link rel="shortcut icon" href="/bingo/img/partyP.ico" />
-    <title>Kraferd Bingo | Let's Party</title>
+    <link rel="shortcut icon" href="/bingo//bingo/img/partyP.ico" />
+
+    
+    <title>Web Dev Bingo | Lets Party</title>
+
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/6.3.1/firebase-app.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/6.3.1/firebase-auth.js"></script>
+    <script defer src="/__/firebase/6.3.1/firebase-database.js"></script>
+    <script defer src="/__/firebase/6.3.1/firebase-messaging.js"></script>
+    <script defer src="/__/firebase/6.3.1/firebase-storage.js"></script>
+    <!-- initialize the SDK after all desired features are loaded -->
+    <script defer src="/__/firebase/init.js"></script>
+
     
 <!--
     
@@ -35,44 +48,44 @@ SOFTWARE.
 <!--Modified by Val Castillo 2019 - BINGO GAME -->
     
 <style type="text/css">
-    text{
-        font-family:Helvetica, Arial, sans-serif;
-        font-size:12px;
-        font-weight: 600;
-        pointer-events:none;
-    }
-    #chart{
-        position:absolute;
-        width:500px;
-        height:500px;
-        top:0;
-        left:0;
-    }
-    #question{
-        position: absolute;
-        width:400px;
-        height:500px;
-        top:0;
-        left:520px;
-    }
-    #question h1{
-        font-size: 40px;
-        font-weight: bold;
-        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-        position: absolute;
-        padding: 0;
-        margin: 0;
-        top:50%;
-        -webkit-transform:translate(0,-50%);
-                transform:translate(0,-50%);
-    }
-    </style>
-    
-</head>
-<body>
+  text{
+      font-family:Helvetica, Arial, sans-serif;
+      font-size:12px;
+      font-weight: 600;
+      pointer-events:none;
+  }
+  #chart{
+      position:absolute;
+      width:500px;
+      height:500px;
+      top:0;
+      left:0;
+  }
+  #question{
+      position: absolute;
+      width:400px;
+      height:500px;
+      top:0;
+      left:520px;
+  }
+  #question h1{
+      font-size: 40px;
+      font-weight: bold;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      position: absolute;
+      padding: 0;
+      margin: 0;
+      top:50%;
+      -webkit-transform:translate(0,-50%);
+              transform:translate(0,-50%);
+  }
+  </style>
+  
+  </head>
+  <body>
     <!--nav-->
     <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
-            <h4 class="my-0 mr-md-auto font-weight-normal"><strong></strong>WEB DEV BINGO |</strong> <img width="20px" src="/bingo/img/partyP.gif"> <strong>PARTY OR DIE</strong> <img width="20px" src="/bingo/img/partyP.gif"></h4>
+            <h4 class="my-0 mr-md-auto font-weight-normal"><strong></strong>WEB DEV BINGO |</strong> <img width="20px" src="/img/partyP.gif"> <strong>PARTY OR DIE</strong> <img width="20px" src="/img/partyP.gif"></h4>
 
             <a class="btn btn-outline-primary" id="showRules">Rules</a>
     </div><!--end nav-->
@@ -126,18 +139,18 @@ SOFTWARE.
 
 // N-25 IS FREE SPACE
         var data = [
-                    {"label":"B-1",  "value":1, "question":"What is Software Development Life Cycle? BONUS: Draw it out"}, 
+                    {"label":"B-1",  "value":1, "question":"What is the Software Development Life Cycle? BONUS: Draw it out"}, 
                     {"label":"O-2",  "value":1, "question":"What is scalability?"},
                     {"label":"G-3",  "value":1, "question":"What is object oriented programming? BONUS: What are the basic features?"},
                     {"label":"I-4",  "value":1, "question":"What is Scope in JavaScript?"},
-                    {"label":"N-5",  "value":1, "question":"Explain the layers present in a webpage. How CSS plays its role in it?"},
-                    {"label":"B-6",  "value":1, "question":"As a developer what ways are applied to reduce the load time of any given website?"}, 
+                    {"label":"N-5",  "value":1, "question":"Explain the layers present in a webpage. How does CSS plays its role in it?"},
+                    {"label":"B-6",  "value":1, "question":"As a developer, what ways are applied to reduce the load time of any given website?"}, 
                     {"label":"N-7",  "value":1, "question":"What are reference types in C#?"},
                     {"label":"I-8",  "value":1, "question":"What are nullable types in C#?"}, 
                     {"label":"G-9",  "value":1, "question":"What does MVC stands for? BONUS: What are the benefits of MVC?"}, 
                     {"label":"O-10", "value":1, "question":"What is a relationship and what are they? BONUS: Give examples for each relationship"}, 
                     {"label":"B-11", "value":1, "question":"What's a foreign key and a primary key?"}, 
-                    {"label":"O-12", "value":1, "question":"What is the different between authentication and authorization?"},
+                    {"label":"O-12", "value":1, "question":"What is the difference between authentication and authorization?"},
                     {"label":"N-13", "value":1, "question":"What’s the difference between POST and GET method?"}, 
                     {"label":"I-14", "value":1, "question":"In what ways can you pass parameters to a method? (C#)"}, 
                     {"label":"G-15", "value":1, "question":"Explain the CSS box model"}, 
@@ -149,7 +162,7 @@ SOFTWARE.
                     {"label":"B-21", "value":1, "question":"DELETE vs TRUNCATE"}, 
                     {"label":"O-22", "value":1, "question":"In an MVC app, what info is used to route your request?"},
                     {"label":"I-23", "value":1, "question":"What is RESTful programming?"},
-                    {"label":"G-24", "value":1, "question":"Explain ORM?"}
+                    {"label":"G-24", "value":1, "question":"Explain ORM? BONUS: Name 2 ORM softwares"}
         ];
 
 
@@ -300,5 +313,5 @@ SOFTWARE.
         
 
     </script>
-</body>
+  </body>
 </html>
